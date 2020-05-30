@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A simple dice game</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+
+<style type="text/css">
+	body{
+		background: #0077ff;
+		color: #fff;
+		font-family:fantasy;
+	}
+	h1{
+		text-align:center;
+		margin-top: 30px;
+	}
+	.container{
+		text-align:center;
+	}
+	.die{
+		padding: 50px;
+		font-size: 40px;
+		background: #fff;
+		font-weight: bolder;
+		color: #000;
+		display:inline-block;
+		border-radius: 7px;
+		box-shadow: 0 0 2px #000 inset;
+		margin: 10px;
+		margin-top: 60px;
+	}
+	#btn{
+		margin-top: 20px;
+		width: 130px;
+		font-size: 20px;
+		outline: 0;
+		border: 0;
+		padding: 15px;
+		border-radius: 2px;
+		background: #ff9900;
+		color:#fff;	
+	}
+	#btn:hover{
+		box-shadow: 0 0 2px #000;
+	}
+</style>
+</head>
+<body>
+	<h1>Dice Game 🎲</h1>
+	<hr>
+	<div class="container">
+		<div class="die die1">0</div>
+		<div class="die die2">0</div>
+		<button id="btn" onclick="roll()">Roll</button>
+	</div>
+</body>
+<script>
+	const roll = () => {
+		// Generates a random number between 0 and 6
+		var randNo1 = Math.floor(Math.random() * 7);
+		var randNo2 = Math.floor(Math.random() * 7);
+		
+		// show an alert if user rolled double 6
+		if(randNo1 == 6 && randNo2 == 6){
+			alert("You rolled double 6, Oya! 🎉🙌 ");
+		}
+		
+		// change die 1 and die 2 text content to our generated random number
+		document.querySelector(".die1").textContent = randNo1;
+		document.querySelector(".die2").textContent = randNo2;
+		
+		// change button text content to "roll again"
+		document.querySelector("#btn").textContent = "Roll Again";
+	}
+</script>
+</html>
